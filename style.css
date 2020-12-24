@@ -11,6 +11,8 @@
     --color_brown-clear : #963816;
     --color_yellow : #E1A101;
     --color_cream : #D0B69F;
+    margin: 0;
+    padding: 0;
 }
 
 .nav
@@ -21,6 +23,11 @@
 .bg-brown
 {
     background-color: var(--color_brown);
+}
+
+.bg-gold
+{
+    background-color: var(--color_yellow);
 }
 
 .nav-link
@@ -58,4 +65,31 @@
 .logo-img
 {
     width: 70%;
+}
+
+.text-box
+{
+    background-color: var(--color_cream);
+}
+
+.text-title
+{
+    text-align: center;
+    font-family: Rio_Oro_Bold;
+    font-size: 5rem;
+}
+
+.text-content
+{
+    padding: 0;
+    margin: 0;
+    padding-bottom: 1rem;
+}
+
+.credit-name
+{
+    color: white;
+    padding: 2rem;
+    margin: 0;
+    text-align: center;
 }
