@@ -1,0 +1,61 @@
+@font-face {
+    font-family:'Rio_Oro_Bold';
+    src:url("font/Rio_Oro_Bold.eot") format("eot"),url("font/Rio_Oro_Bold.woff") format("woff"),url("font/Rio_Oro_Bold.ttf") format("truetype"),url("font/Rio_Oro_Bold.svg#RioOro-Bold") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+
+*
+{
+    --color_brown : #932B04;
+    --color_brown-clear : #963816;
+    --color_yellow : #E1A101;
+    --color_cream : #D0B69F;
+}
+
+.nav
+{
+    flex-wrap: nowrap;
+}
+
+.bg-brown
+{
+    background-color: var(--color_brown);
+}
+
+.nav-link
+{
+    color: white;
+}
+
+.nav-link:hover
+{
+    color: var(--color_yellow);
+}
+
+.nav-title
+{
+    font-family: Rio_Oro_Bold;
+    font-size: 2rem;
+    color: white;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+.jumbotron
+{
+    background-image: url("image/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0rem 0rem;
+}
+
+.logo-img
+{
+    width: 70%;
+}
