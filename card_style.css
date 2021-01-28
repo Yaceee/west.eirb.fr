@@ -1,0 +1,89 @@
+@font-face {
+    font-family:'Rio_Oro_Bold';
+    src:url("font/Rio_Oro_Bold.eot") format("eot"),url("font/Rio_Oro_Bold.woff") format("woff"),url("font/Rio_Oro_Bold.ttf") format("truetype"),url("font/Rio_Oro_Bold.svg#RioOro-Bold") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+
+*
+{
+    --color_brown : #932B04;
+    --color_brown-clear : #963816;
+    --color_yellow : #E1A101;
+    --color_cream : #D0B69F;
+    margin: 0;
+    padding: 0;
+}
+
+.rio_font
+{
+    font-family: 'Rio_Oro_Bold';
+}
+
+.flex_row
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.center
+{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.card_display
+{
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+    width: 350px;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.card_background
+{
+    background-image: url("image/card_bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card_img
+{
+    height: 260px;
+    width: 260px;
+    border: var(--color_brown) double thick;
+    border-radius: 0.2rem;
+    
+}
+
+.card_name
+{
+    font-size: 1.7rem;
+    margin: 0;
+    margin-top: 0.8em;
+    border-bottom: black double thick;
+    border-radius: 00.2rem;
+    color: black;
+    text-align: center;
+}
+
+
+.card_title
+{
+    font-size: 2rem;
+    margin: 0;
+    color: var(--color_brown);
+    text-align: center;
+}
+
+.line
+{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
