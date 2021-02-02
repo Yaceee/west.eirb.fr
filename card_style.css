@@ -66,10 +66,12 @@
     font-size: 1.7rem;
     margin: 0;
     margin-top: 0.8em;
+    border-top: black double thick;
     border-bottom: black double thick;
     border-radius: 00.2rem;
     color: black;
     text-align: center;
+    width: 300px;
 }
 
 

@@ -31,12 +31,12 @@ var typePerso="";
 
 function preload() {
   backgroundImg = loadImage("mini_jeux/image/background.jpg");
-  persoImg = loadImage("mini_jeux/image/westjump/texasWalker.png");
-  platformImg = loadImage("mini_jeux/image/westjump/bois.png");
-  monsterImg = loadImage("mini_jeux/image/westjump/monstreun.png");
-  persounImg = loadImage("mini_jeux/image/westjump/luigi.png");
-  persodeuxImg = loadImage("mini_jeux/image/westjump/persodeuxImg.png");
-  persotroisImg = loadImage("mini_jeux/image/westjump/persotroisImg.png");
+  persoImg = loadImage("mini_jeux/image/texasWalker.png");
+  platformImg = loadImage("mini_jeux/image/bois.png");
+  monsterImg = loadImage("mini_jeux/image/monstreun.png");
+  persounImg = loadImage("mini_jeux/image/persounImg.png");
+  persodeuxImg = loadImage("mini_jeux/image/persodeuxImg.png");
+  persotroisImg = loadImage("mini_jeux/image/persotroisImg.png");
   westernFont = loadFont("font/west.TTF");
 }
 
