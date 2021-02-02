@@ -34,7 +34,7 @@ function preload() {
   persoImg = loadImage("mini_jeux/image/texasWalker.png");
   platformImg = loadImage("mini_jeux/image/bois.png");
   monsterImg = loadImage("mini_jeux/image/monstreun.png");
-  persounImg = loadImage("mini_jeux/image/persounImg.png");
+  persounImg = loadImage("mini_jeux/image/luigi.png");
   persodeuxImg = loadImage("mini_jeux/image/persodeuxImg.png");
   persotroisImg = loadImage("mini_jeux/image/persotroisImg.png");
   westernFont = loadFont("font/west.TTF");
