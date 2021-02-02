@@ -11,6 +11,7 @@
     --color_brown-clear : #963816;
     --color_yellow : #E1A101;
     --color_cream : #D0B69F;
+    --color_sign : #784421;
     margin: 0;
     padding: 0;
 }
@@ -72,9 +73,24 @@
     width: 70%;
 }
 
-.text-box
+.text-box:nth-child(2n)
 {
     background-color: var(--color_cream);
+}
+
+.text-box:nth-child(2n+1)
+{
+    background-color: var(--color_brown-clear);
+}
+
+.text-box:nth-child(n+2)
+{
+    border-top: var(--color_yellow) solid 0.5rem;
+}
+
+.text-box
+{
+    padding-top: 0.5rem;
 }
 
 .text-title

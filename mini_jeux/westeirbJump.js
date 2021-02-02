@@ -29,13 +29,13 @@ var westernFont;
 
 
 function preload() {
-  backgroundImg = loadImage("image/background.jpg");
-  persoImg = loadImage("image/texasWalker.png");
-  platformImg = loadImage("image/bois.png");
-  monsterImg = loadImage("image/monstreun.png");
-  persounImg = loadImage("image/persounImg.png");
-  persodeuxImg = loadImage("image/persodeuxImg.png");
-  persotroisImg = loadImage("image/persotroisImg.png");
+  backgroundImg = loadImage("mini_jeux/image/background.jpg");
+  persoImg = loadImage("mini_jeux/image/texasWalker.png");
+  platformImg = loadImage("mini_jeux/image/bois.png");
+  monsterImg = loadImage("mini_jeux/image/monstreun.png");
+  persounImg = loadImage("mini_jeux/image/persounImg.png");
+  persodeuxImg = loadImage("mini_jeux/image/persodeuxImg.png");
+  persotroisImg = loadImage("mini_jeux/image/persotroisImg.png");
   westernFont = loadFont("font/west.TTF");
 }
 
