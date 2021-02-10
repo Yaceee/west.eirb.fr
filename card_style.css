@@ -20,12 +20,6 @@
     font-family: 'Rio_Oro_Bold';
 }
 
-.flex_row
-{
-    display: flex;
-    flex-direction: row;
-}
-
 .center
 {
     justify-content: center;

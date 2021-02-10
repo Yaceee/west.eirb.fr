@@ -12,6 +12,7 @@
     --color_yellow : #E1A101;
     --color_cream : #D0B69F;
     --color_sign : #784421;
+    --color_silver : #cccccc;
     margin: 0;
     padding: 0;
 }
@@ -38,7 +39,7 @@
 
 .nav-link
 {
-    color: white;
+    color: var(--color_silver);
 }
 
 .nav-link:hover
@@ -49,8 +50,9 @@
 .nav-title
 {
     font-family: Rio_Oro_Bold;
+    text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
     font-size: 2rem;
-    color: white;
+    color: #cccccc!important;
     margin: 0;
     padding: 0;
     margin-bottom: 0.5rem;
@@ -73,19 +75,10 @@
     width: 70%;
 }
 
-.text-box:nth-child(2n)
+.bg-fond
 {
-    background-color: var(--color_cream);
-}
-
-.text-box:nth-child(2n+1)
-{
-    background-color: var(--color_brown-clear);
-}
-
-.text-box:nth-child(n+2)
-{
-    border-top: var(--color_yellow) solid 0.5rem;
+    background-image: url("image/fond.png");
+    background-repeat: repeat-y;
 }
 
 .text-box
@@ -96,12 +89,13 @@
 .text-title
 {
     text-align: center;
+    color: var(--color_silver);
+    text-shadow: #000000 2px 2px, #000000 -2px 2px, #000000 -2px -2px, #000000 2px -2px;
     font-family: Rio_Oro_Bold;
     font-size: 5rem;
-    background-image: url("image/planche.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: var(--color_sign);
+    border-radius: 20px;
+    border: black solid 2px;
     margin-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
