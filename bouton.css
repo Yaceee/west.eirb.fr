@@ -1,0 +1,47 @@
+*
+{
+    list-style: none;
+    font-style: none;
+}
+
+.bouton
+{
+    background-color: red;
+    width: 200px;
+    height: 100px;
+    justify-content: center;
+}
+
+.bouton .rev
+{
+    position: relative;
+    left: -8px;
+    top: 5px;
+    height: 0rem;
+    transform: rotate(-180deg);
+    transition: ease-out 0.1s;
+    transition-property: all;
+}
+
+.bouton:hover .rev
+{
+    height: 2rem;
+    transform: rotate(0deg);
+    display: initial;
+}
+
+.clic
+{
+    font-style: none;
+    color: black;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.clic:visited
+{
+    font-style: none;
+    color: black;
+    text-decoration: none;
+    font-size: 2rem;
+}

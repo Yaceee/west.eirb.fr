@@ -52,10 +52,70 @@
     font-family: Rio_Oro_Bold;
     text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
     font-size: 2rem;
-    color: #cccccc!important;
+    color: var(--color_silver)!important;
     margin: 0;
     padding: 0;
     margin-bottom: 0.5rem;
+    transition: all ease-out 0.13s;
+}
+
+.nav-title:hover
+{
+    text-shadow: black -1px 1px, black -2px 2px, black -3px 3px;
+    transform: translate3d(3px,-3px,0);
+}
+
+.nav-item
+{
+    display: flex;
+    flex-direction: row !important;
+    width: fit-content;
+}
+
+.rev
+{
+    position: relative;
+    left: -8px;
+    top: 5px;
+    height: 2rem;
+}
+
+.rev-r
+{
+    position: relative;
+    left: 8px;
+    top: 5px;
+    height: 2rem;
+}
+
+.rev-img
+{
+    height: 0rem;
+    transform: rotate(-360deg);
+    transition: linear 0.13s;
+    transition-property: all;
+}
+
+.nav-item:hover .rev-img
+{
+    height: 2rem;
+    transform: rotate(0deg);
+    display: initial;
+}
+
+.rev-r-img
+{
+    height: 0rem;
+    transform: rotate(360deg);
+    transition: ease-out 0.13s;
+    transition-property: all;
+}
+
+.nav-item:hover .rev-r-img
+{
+    height: 2rem;
+    transform: rotate(0deg);
+    display: initial;
 }
 
 .jumbotron
@@ -70,6 +130,12 @@
     padding: 0rem 0rem;
 }
 
+.jumbotron-border
+{
+    border-bottom-right-radius: 50% 8%;
+    border-bottom-left-radius: 50% 8%;
+}
+
 .logo-img
 {
     width: 70%;
@@ -80,6 +146,8 @@
     background-image: url("image/fond.png");
     background-repeat: repeat-y;
 }
+
+
 
 .text-box
 {
