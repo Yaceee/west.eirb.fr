@@ -78,6 +78,7 @@
     left: -8px;
     top: 5px;
     height: 2rem;
+    width: fit-content;
 }
 
 .rev-r
@@ -86,6 +87,8 @@
     left: 8px;
     top: 5px;
     height: 2rem;
+    width: fit-content;
+    transform: rotateY(180deg);
 }
 
 .rev-img
@@ -106,7 +109,7 @@
 .rev-r-img
 {
     height: 0rem;
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
     transition: ease-out 0.13s;
     transition-property: all;
 }
