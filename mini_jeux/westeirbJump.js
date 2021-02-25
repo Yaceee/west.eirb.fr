@@ -18,7 +18,10 @@ var score = 0;
 var highScore = 0;
 var persoImg;
 var platformImg;
-var monsterImg;
+var monsterDeuxImg;
+var monsterUnImg;
+var monsterTroisImg;
+var monsterQuatreImg;
 var backgroundImg;
 var persounImg;
 var persodeuxImg;
@@ -26,17 +29,20 @@ var persotroisImg;
 var mstPossible = true;
 var westernFont;
 var typePerso="";
-
+var monstre="";
 
 
 function preload() {
   backgroundImg = loadImage("mini_jeux/image/background.jpg");
   persoImg = loadImage("mini_jeux/image/texasWalker.png");
   platformImg = loadImage("mini_jeux/image/bois.png");
-  monsterImg = loadImage("mini_jeux/image/monstreun.png");
-  persounImg = loadImage("mini_jeux/image/luigi.png");
-  persodeuxImg = loadImage("mini_jeux/image/persodeuxImg.png");
-  persotroisImg = loadImage("mini_jeux/image/persotroisImg.png");
+  monsterUnImg = loadImage("mini_jeux/image/monstreun.png");
+  monsterDeuxImg = loadImage("mini_jeux/image/monstredeux.png");
+  monsterTroisImg = loadImage("mini_jeux/image/monstretrois.png");
+  monsterQuatreImg = loadImage("mini_jeux/image/monstrequatre.png");
+  persounImg = loadImage("mini_jeux/image/blaise.png");
+  persodeuxImg = loadImage("mini_jeux/image/leonbis.png");
+  persotroisImg = loadImage("mini_jeux/image/ln.png");
   westernFont = loadFont("font/west.TTF");
 }
 
@@ -107,11 +113,12 @@ function level(){
 
 function hardcoreone(){
     var mst = new Monstre(15);
+    monstre="un";
     mstList.push(mst);
     mstList.forEach(function(mst) {
       // move all platforms down
       mst.yPos += platYChange;
-      image(monsterImg, mst.xPos, mst.yPos, mst.width, mst.height);
+      image(monsterUnImg, mst.xPos, mst.yPos, mst.width, mst.height);
   
       if(mst.yPos > 600) {
         score++;
@@ -122,11 +129,12 @@ function hardcoreone(){
 
 function hardcoretwo(){
   var mst = new Monstre(15);
+  monstre="deux";
     mstList.push(mst);
     mstList.forEach(function(mst) {
       // move all platforms down
       mst.yPos += platYChange;
-      image(monsterImg, mst.xPos, mst.yPos, mst.width, mst.height);
+      image(monsterDeuxImg, mst.xPos, mst.yPos, mst.width, mst.height);
   
       if(mst.yPos > 600) {
         score++;
@@ -137,11 +145,12 @@ function hardcoretwo(){
 
 function hardcorethree(){
   var mst = new Monstre(15);
+  monstre="trois";
     mstList.push(mst);
     mstList.forEach(function(mst) {
       // move all platforms down
       mst.yPos += platYChange;
-      image(monsterImg, mst.xPos, mst.yPos, mst.width, mst.height);
+      image(monsterTroisImg, mst.xPos, mst.yPos, mst.width, mst.height);
   
       if(mst.yPos > 600) {
         score++;
@@ -152,11 +161,12 @@ function hardcorethree(){
 
 function hardcorefour(){
   var mst = new Monstre(15);
+  monstre="quatre";
     mstList.push(mst);
     mstList.forEach(function(mst) {
       // move all platforms down
       mst.yPos += platYChange;
-      image(monsterImg, mst.xPos, mst.yPos, mst.width, mst.height);
+      image(monsterQuatreImg, mst.xPos, mst.yPos, mst.width, mst.height);
   
       if(mst.yPos > 600) {
         score++;
@@ -169,7 +179,7 @@ function hardcorefour(){
 function jeu(){
   drawPlatforms();
   drawDoodler(typePerso);
-  drawMonsters();
+  drawMonsters(monstre);
   checkCollision();
   moveDoodler();
   moveScreen();
@@ -186,20 +196,25 @@ function menu(){
   text("WestJump", 140, 50);
   textSize(30);
   text("Choisir un personnage" , 80, 250);
-  image(persounImg, 90,270, 80, 80);
+  image(persounImg, 70,270, 80, 80);
   image(persodeuxImg, 160,270, 80, 80);
-  image(persotroisImg, 220,270, 80, 80);
+  image(persotroisImg, 250,270, 80, 80);
   textSize(20);
   text("Record  : " + highScore, 160, 400);
 
-  iconList.unshift(new Icon(90,270));
+  iconList.unshift(new Icon(70,270));
   iconList.unshift(new Icon(160,270));
-  iconList.unshift(new Icon(220,270));
+  iconList.unshift(new Icon(250,270));
 
 }
 
 ////////////////EVENTS///////////////////////
 
+function touchMoved() {   // Move gray circle
+  if(started){
+    persoX = mouseX;
+  }
+}
 
 // Start Game
 function mousePressed() {
@@ -334,11 +349,25 @@ function drawPlatforms() {
   });
 }
 
-function drawMonsters() {
+function drawMonsters(monstre) {
   mstList.forEach(function(mst) {
     mst.yPos += platYChange;
-    image(monsterImg, mst.xPos, mst.yPos, mst.width, mst.height);
-  
+    switch (monstre){
+      case "un":
+        image(monsterUnImg, mst.xPos, mst.yPos, mst.width, mst.height);
+        break;
+      case "deux":
+        image(monsterDeuxImg, mst.xPos, mst.yPos, mst.width, mst.height);
+        break;
+      case "trois":
+        image(monsterTroisImg, mst.xPos, mst.yPos, mst.width, mst.height);
+        break;
+      case "quatre":
+        image(monsterQuatreImg, mst.xPos, mst.yPos, mst.width, mst.height);
+        break;
+      default :
+        break;
+    }
     if(mst.yPos > 600) {
       score++;
       mstList.pop();
@@ -412,4 +441,6 @@ function endGame() {
   mstList = [];
   mstPossible = true;
 }
+
+
 
