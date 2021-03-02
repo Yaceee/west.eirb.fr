@@ -1,0 +1,67 @@
+.part-cont
+{  
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    background-image: url("image/wood_texture.jpg");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+    border: 30px solid transparent;
+    border-image: url("image/cadre.png") 84;
+}
+
+.part-sign-cont
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.sign
+{
+    display: flex;
+    justify-content: center;
+    background-image: url("image/logo_part/pancarte.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 250px;
+    width: 320px;
+    transition-property: all;
+    transition: cubic-bezier(.67,1.95,.74,1) 0.4s;
+    transform-origin: 50% 5%;
+}
+
+.logo-cont
+{
+    margin-top: 70px;
+    width: 55%;
+    height: 50%;
+}
+
+.part-logo
+{
+    position: relative;
+    justify-content: center;
+    height: 100%;
+    width: auto;
+}
+
+.sign:nth-child(2n+1)
+{
+    transform: rotate(7deg);
+}
+
+.sign:nth-child(2n)
+{
+    transform: rotate(-5deg);
+}
+
+@media (hover: hover)
+{
+    .sign:hover
+    {
+        transform: rotate(1deg);
+    }
+}

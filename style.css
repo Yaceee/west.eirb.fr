@@ -11,11 +11,13 @@
     --color_brown-clear : #963816;
     --color_yellow : #E1A101;
     --color_cream : #D0B69F;
+    --color_dark_cream : #91643c;
     --color_sign : #784421;
     --color_silver : #cccccc;
     margin: 0;
     padding: 0;
 }
+
 
 .nav
 {
@@ -99,13 +101,6 @@
     transition-property: all;
 }
 
-.nav-item:hover .rev-img
-{
-    height: 2rem;
-    transform: rotate(0deg);
-    display: initial;
-}
-
 .rev-r-img
 {
     height: 0rem;
@@ -114,11 +109,58 @@
     transition-property: all;
 }
 
-.nav-item:hover .rev-r-img
+@media (hover: hover)
 {
-    height: 2rem;
-    transform: rotate(0deg);
-    display: initial;
+    .nav-item:hover .rev-img
+    {
+        height: 2rem;
+        transform: rotate(0deg);
+        display: initial;
+    }
+    
+    .nav-item:hover .rev-r-img
+    {
+        height: 2rem;
+        transform: rotate(0deg);
+        display: initial;
+    }
+}
+
+.net-icon-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.net-icon
+{
+    height: 40px;
+    margin: 0px 5px;
+    transition: ease-out 0.2s;
+    transition-property: all;
+}
+
+@media (hover: hover)
+{
+    .net-icon:hover
+    {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 767px)
+{
+    .icons
+    {
+        width: 100% !important;
+    }
+
+    .net-icon
+    {
+        height: 60px;
+    }
 }
 
 .jumbotron
@@ -150,18 +192,42 @@
     background-repeat: repeat-y;
 }
 
+.banner
+{
+    background-color: #a16635;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding-bottom: 30px;
+    border-top: var(--color_sign) 8px solid;
+    border-bottom: var(--color_sign) 8px solid;
+    border-right: var(--color_sign) 6px solid;
+    border-left: var(--color_sign) 6px solid;
+    border-radius: 8px;
+}
 
+.banner-title
+{
+    text-align: center;
+    font-family: Rio_Oro_Bold;
+    font-size: 3rem;
+    color: var(--color_silver);
+}
 
 .text-box
 {
     padding-top: 0.5rem;
 }
 
+.text-border
+{
+    text-shadow: #000000 2px 2px, #000000 -2px 2px, #000000 -2px -2px, #000000 2px -2px;
+}
+
 .text-title
 {
     text-align: center;
     color: var(--color_silver);
-    text-shadow: #000000 2px 2px, #000000 -2px 2px, #000000 -2px -2px, #000000 2px -2px;
     font-family: Rio_Oro_Bold;
     font-size: 5rem;
     background-color: var(--color_sign);
@@ -176,6 +242,59 @@
     padding: 0;
     margin: 0;
     padding-bottom: 1rem;
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+.center
+{
+    text-align: center !important;
+}
+
+@media (min-width : 768px)
+{
+
+    .video-container
+    {
+        width: 100%;
+        padding-bottom: 57.85%;
+        position: relative;
+    }
+
+    .youtube-video
+    {
+        border: 20px solid transparent;
+        border-image: url("image/cadre.png") 84;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width : 767px)
+{
+    .video-container
+    {
+        width: 100%;
+        padding-bottom: 56.25%;
+        position: relative;
+    }
+
+    .youtube-video
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.margin-vid
+{
+    margin-bottom: 1rem;
 }
 
 .credit-name
@@ -185,3 +304,117 @@
     margin: 0;
     text-align: center;
 }
+
+.part_banner
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.part_logo
+{
+    height: 10%;
+    width: 10%;
+}
+
+.more-button
+{
+    background-image: url("image/dir-sign.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 300px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: cubic-bezier(.67,1.95,.74,1) 0.3s;
+    transform-origin: top center;
+}
+
+.more-button-link
+{
+    text-decoration: none;
+    font-family: Rio_Oro_Bold;
+    font-size: 2rem;
+    color: var(--color_silver);
+    width: 300px;
+    height: 100px;
+}
+
+.more-button-link:hover
+{
+    text-decoration: none;
+    color: var(--color_silver);
+}
+
+.more-button-title
+{
+    display: flex;
+    margin-top: 30px;
+    margin-right: 20px;
+    justify-content: center;
+}
+
+@media (hover: hover)
+{
+    .more-button:hover
+    {
+        transform: rotate(-5deg);
+    }
+}
+
+.westjump-container
+{
+    display: flex;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+.westjump
+{
+    position: relative;
+}
+
+@media (min-width: 500px) and (min-height: 800px)
+{
+    .westjump
+    {
+        border: 20px solid transparent;
+        border-image: url("image/cadre.png") 84;
+        width: 440px;
+        height: 640px;
+        margin-top: 50px;
+    }
+}
+
+@media (min-height: 800px)
+{
+    .westjump
+    {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 499px)
+{
+    .westjump-container
+    {
+        width: 100%;
+        height: max-content;
+    }
+
+    .westjump
+    {
+        width: 100%;
+        max-width: 400px;
+        max-height: 600px;
+    }
+}
+
+
