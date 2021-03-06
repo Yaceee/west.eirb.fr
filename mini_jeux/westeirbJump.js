@@ -48,7 +48,7 @@ function preload() {
   persodeuxImg = loadImage("mini_jeux/image/leonbis.png");
   persotroisImg = loadImage("mini_jeux/image/ln.png");
   westernFont = loadFont("font/west.TTF");
-  son=loadSound("mini_jeux/sons/son.mp3");
+  //son=loadSound("mini_jeux/sons/son.mp3");
 }
 
 function Platform(ptfPosY) {
@@ -238,8 +238,8 @@ function mousePressed() {
       persoX = ptfList[ptfList.length - 1].xPos + 15;
       speed = 0.1;
       started = true;
-      son.play();
-      son.jump(14);
+      /*son.play();
+      son.jump(14);*/
     }
     else if (
       mouseX > 160  &&
@@ -254,8 +254,8 @@ function mousePressed() {
       persoX = ptfList[ptfList.length - 1].xPos + 15;
       speed = 0.1;
       started = true;
-      son.play();
-      son.jump(14);
+     /* son.play();
+      son.jump(14);*/
     }
     else if (
       mouseX > 220  &&
@@ -270,8 +270,8 @@ function mousePressed() {
       persoX = ptfList[ptfList.length - 1].xPos + 15;
       speed = 0.1;
       started = true;
-      son.play();
-      son.jump(14);
+      /*son.play();
+      son.jump(14);*/
     }
   }
 }
@@ -464,7 +464,7 @@ function endGame() {
   mstList = [];
   mstPossible = true;
   iconList = [];
-  son.stop();
+  /*son.stop();*/
 
 }
 
