@@ -18,6 +18,7 @@ var score = 0;
 var highScore = 0;
 var persoImg;
 var platformImg;
+var platformImgOld
 var monsterDeuxImg;
 var monsterUnImg;
 var monsterTroisImg;
@@ -30,12 +31,15 @@ var mstPossible = true;
 var westernFont;
 var typePerso="";
 var monstre="";
+var platacreerList = [];
+var son;
 
 
 function preload() {
   backgroundImg = loadImage("mini_jeux/image/background.jpg");
   persoImg = loadImage("mini_jeux/image/texasWalker.png");
   platformImg = loadImage("mini_jeux/image/bois.png");
+  platformImgOld = loadImage("mini_jeux/image/bois2.png");
   monsterUnImg = loadImage("mini_jeux/image/monstreun.png");
   monsterDeuxImg = loadImage("mini_jeux/image/monstredeux.png");
   monsterTroisImg = loadImage("mini_jeux/image/monstretrois.png");
@@ -44,6 +48,7 @@ function preload() {
   persodeuxImg = loadImage("mini_jeux/image/leonbis.png");
   persotroisImg = loadImage("mini_jeux/image/ln.png");
   westernFont = loadFont("font/west.TTF");
+  //son=loadSound("mini_jeux/sons/son.mp3");
 }
 
 function Platform(ptfPosY) {
@@ -51,6 +56,7 @@ function Platform(ptfPosY) {
   this.yPos = ptfPosY;
   this.width = ptfX;
   this.height = ptfY;
+  this.nbSaut=0;
 }
 
 function Monstre(ptfPosY) {
@@ -232,6 +238,8 @@ function mousePressed() {
       persoX = ptfList[ptfList.length - 1].xPos + 15;
       speed = 0.1;
       started = true;
+      /*son.play();
+      son.jump(14);*/
     }
     else if (
       mouseX > 160  &&
@@ -246,6 +254,8 @@ function mousePressed() {
       persoX = ptfList[ptfList.length - 1].xPos + 15;
       speed = 0.1;
       started = true;
+     /* son.play();
+      son.jump(14);*/
     }
     else if (
       mouseX > 220  &&
@@ -260,6 +270,8 @@ function mousePressed() {
       persoX = ptfList[ptfList.length - 1].xPos + 15;
       speed = 0.1;
       started = true;
+      /*son.play();
+      son.jump(14);*/
     }
   }
 }
@@ -338,7 +350,11 @@ function drawPlatforms() {
   ptfList.forEach(function(plat) {
     // move all platforms down
     plat.yPos += platYChange;
-    image(platformImg, plat.xPos, plat.yPos, plat.width, plat.height);
+    if(plat.nbSaut == 0){
+      image(platformImg, plat.xPos, plat.yPos, plat.width, plat.height);
+    }else{
+      image(platformImgOld, plat.xPos, plat.yPos, plat.width, plat.height);
+    }
 
     if(plat.yPos > 600) {
       score++;
@@ -346,6 +362,7 @@ function drawPlatforms() {
       var newPlat = new Platform(0);
       ptfList.unshift(newPlat); // add to front
     }
+    // plat.xPos++; TODO faisaible
   });
 }
 
@@ -384,7 +401,7 @@ function drawMonsters(monstre) {
 //  Collisions
 // ===========================
 function checkCollision() {
-  ptfList.forEach(function(plat) {
+  ptfList.forEach(function(plat, index) {
     if(
       persoX < plat.xPos + plat.width &&
       persoX + persoSize > plat.xPos &&
@@ -393,6 +410,12 @@ function checkCollision() {
       speed > 0
     ) {
       speed = -10;
+      plat.nbSaut++;
+    }
+    if(plat.nbSaut == 2){
+      ptfList.splice(index, 1);
+      var newPlat = new Platform(0);
+      ptfList.unshift(newPlat);
     }
   });
 
@@ -440,6 +463,9 @@ function endGame() {
   ptfList = [];
   mstList = [];
   mstPossible = true;
+  iconList = [];
+  /*son.stop();*/
+
 }
 
 
