@@ -18,6 +18,10 @@
     padding: 0;
 }
 
+html
+{
+    scroll-behavior: smooth;
+}
 
 .nav
 {
@@ -190,6 +194,13 @@
 {
     background-image: url("image/fond.png");
     background-repeat: repeat-y;
+    background-position-x: center;
+    transition: background-image ease-in-out 0.5s;
+}
+
+.bg-fond_nuit
+{
+    background-image: url("image/fond-nuit.png");
 }
 
 .banner
@@ -226,6 +237,7 @@
 
 .text-title
 {
+    position: relative;
     text-align: center;
     color: var(--color_silver);
     font-family: Rio_Oro_Bold;
