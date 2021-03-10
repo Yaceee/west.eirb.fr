@@ -13,13 +13,16 @@
 
 @media (max-width: 499px)
 {
-    body
-    {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: var(--color_cream);
-        overflow: hidden;
-    }
+    height: 100%;
+    overflow: hidden;
+}
+
+body
+{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--color_cream);
 }
 

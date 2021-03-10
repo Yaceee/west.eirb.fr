@@ -437,6 +437,9 @@ function checkCollision() {
       persoY < mst.yPos + mst.height &&
       persoY + persoSize > mst.yPos &&
       speed > 0){
+        if(score > highScore) {
+          highScore = score;
+        }
        endGame();
     }
   });
