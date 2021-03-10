@@ -402,6 +402,7 @@ function drawMonsters(monstre) {
 // ===========================
 function checkCollision() {
   ptfList.forEach(function(plat, index) {
+    var tmp= plat.yPos;
     if(
       persoX < plat.xPos + plat.width &&
       persoX + persoSize > plat.xPos &&
@@ -414,7 +415,7 @@ function checkCollision() {
     }
     if(plat.nbSaut == 2){
       ptfList.splice(index, 1);
-      var newPlat = new Platform(0);
+      var newPlat = new Platform(-(600-tmp));
       ptfList.unshift(newPlat);
     }
   });

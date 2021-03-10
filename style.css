@@ -381,7 +381,7 @@
     position: relative;
 }
 
-@media (min-width: 500px) and (min-height: 800px)
+@media (min-width: 500px) and (min-height: 400px)
 {
     .westjump
     {
@@ -393,7 +393,7 @@
     }
 }
 
-@media (min-height: 800px)
+@media (min-height: 600px)
 {
     .westjump
     {
