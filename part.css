@@ -38,13 +38,17 @@
     margin-top: 70px;
     width: 55%;
     height: 50%;
+    position: relative;
 }
 
 .part-logo
 {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
     justify-content: center;
-    height: 100%;
+    max-height: 100%;
     width: auto;
 }
 

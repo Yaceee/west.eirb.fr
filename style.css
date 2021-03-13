@@ -10,7 +10,7 @@
     --color_brown : #932B04;
     --color_brown-clear : #963816;
     --color_yellow : #E1A101;
-    --color_cream : #D0B69F;
+    --color_cream : #cfa682;
     --color_dark_cream : #91643c;
     --color_sign : #784421;
     --color_silver : #cccccc;
@@ -21,6 +21,20 @@
 html
 {
     scroll-behavior: smooth;
+    height: 100%;
+}
+
+body
+{
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.footer
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
 
 .nav
@@ -219,6 +233,7 @@ html
 
 .banner-title
 {
+    position: relative;
     text-align: center;
     font-family: Rio_Oro_Bold;
     font-size: 3rem;
@@ -429,4 +444,24 @@ html
     }
 }
 
+.miniature-container
+{
+    margin: 1rem 0rem;
+}
 
+.miniature
+{
+    width: 400px;
+    border: 20px solid transparent;
+    border-image: url("image/cadre.png") 84;
+}
+
+.dd-title
+{
+    background-image: url('image/dd-background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 70px;
+    padding-bottom: 30px;
+    background-size: contain;
+}
