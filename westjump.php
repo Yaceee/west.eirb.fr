@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+// Include eirb connect function
+include 'eirb-common/eirb.cas.php';
+// Activate the protection
+$login = eirb_cas_protect();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +29,7 @@
                     <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
                         <ul class="nav navbar-nav text-uppercase">    
                             <li class="nav-item"><div class="rev-r"><img class="rev-r-img" src="image/revolver-icon.png" alt="rev-icon"></div><a href="equipe.html" class="nav-link">Equipe</a><div class="rev"><img class="rev-img" src="image/revolver-icon.png" alt="rev-icon"></div></li>
-                            <li class="nav-item"><div class="rev-r"><img class="rev-r-img" src="image/revolver-icon.png" alt="rev-icon"></div><a href="jeux.html" class="nav-link">La salle d'arcade</a><div class="rev"><img class="rev-img" src="image/revolver-icon.png" alt="rev-icon"></div></li>
+                            <li class="nav-item"><div class="rev-r"><img class="rev-r-img" src="image/revolver-icon.png" alt="rev-icon"></div><a href="jeux.php" class="nav-link">La salle d'arcade</a><div class="rev"><img class="rev-img" src="image/revolver-icon.png" alt="rev-icon"></div></li>
                             <li class="nav-item"><div class="rev-r"><img class="rev-r-img" src="image/revolver-icon.png" alt="rev-icon"></div><a href="calendrier.html" class="nav-link">Calendrier</a><div class="rev"><img class="rev-img" src="image/revolver-icon.png" alt="rev-icon"></div></li>
                             <li class="nav-item"><div class="rev-r"><img class="rev-r-img" src="image/revolver-icon.png" alt="rev-icon"></div><a href="partenaires.html" class="nav-link">Partenaires</a><div class="rev"><img class="rev-img" src="image/revolver-icon.png" alt="rev-icon"></div></li>
                             <li class="nav-item icons">
