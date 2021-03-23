@@ -5,8 +5,8 @@ var speed;
 var speedCote = 6;
 var ptfX = 70;
 var ptfY = 15;
-var monsterX = 80;
-var monsterY = 35;
+var monsterX = 70;
+var monsterY = 70;
 var iconSize = 80;
 var maxPtf = 5;
 var ptfList = [];
@@ -16,7 +16,6 @@ var platYChange = 0;
 var started;
 var score = 0;
 var highScore = 0;
-var persoImg;
 var platformImg;
 var platformImgOld
 var monsterDeuxImg;
@@ -33,11 +32,16 @@ var typePerso="";
 var monstre="";
 var platacreerList = [];
 var son;
+var validscore;
+var boutonValid;
+var buttonavailable;
+
+  
+  
 
 
 function preload() {
   backgroundImg = loadImage("mini_jeux/image/background.jpg");
-  persoImg = loadImage("mini_jeux/image/texasWalker.png");
   platformImg = loadImage("mini_jeux/image/bois.png");
   platformImgOld = loadImage("mini_jeux/image/bois2.png");
   monsterUnImg = loadImage("mini_jeux/image/monstreun.png");
@@ -81,13 +85,18 @@ function setup() {
   createCanvas(400, 600);
   frameRate(60);
   started = false;
+  validscore=false;
+  buttonavailable=true;
 }
 
 function draw() {
   image(backgroundImg, 0, 0, 400, 600);
   if(started) {
     jeu();
-  } else {
+  } else if (validscore) {
+    validScore();
+  }
+  else{
     menu();
   }
 }
@@ -194,6 +203,29 @@ function jeu(){
 }
 
 
+function validScore(){
+  fill(0);
+  
+  textSize(20);
+  text("Valdider le score  : " + score, 130, 250);
+
+  if(buttonavailable){
+    boutonValid = createButton("VALIDER");
+    boutonValid.mousePressed(validate);
+    boutonValid.position(150,170);
+    buttonavailable=false;
+  }
+  
+  
+
+}
+
+function validate(){
+  validscore=false;
+  boutonValid.remove();
+}
+
+
 function menu(){
   fill(0);
   textSize(30);
@@ -224,7 +256,7 @@ function touchMoved() {   // Move gray circle
 
 // Start Game
 function mousePressed() {
-  if(!started){
+  if(!started && !validscore){
     if (
       mouseX > 90  &&
       mouseX < 90 +80 &&
@@ -313,7 +345,7 @@ function drawDoodler(perso) {
       image(persotroisImg, persoX, persoY, persoSize, persoSize);
       break;
     default :
-      image(persoImg, persoX, persoY, persoSize, persoSize);
+      image(persounImg, persoX, persoY, persoSize, persoSize);
       break;
   }
   
@@ -424,7 +456,7 @@ function checkCollision() {
     if(
       persoX < mst.xPos + mst.width &&
       persoX + persoSize > mst.xPos &&
-      persoY + persoSize < mst.yPos + mst.height &&
+      persoY + persoSize < mst.yPos + 20 &&
       persoY + persoSize > mst.yPos &&
       speed > 0
     ) {
@@ -464,12 +496,13 @@ function checkCollision() {
 
 function endGame() {
   started = false;
+  validscore=true;
   ptfList = [];
   mstList = [];
   mstPossible = true;
   iconList = [];
+  buttonavailable=true;
   /*son.stop();*/
-
 }
 
 
