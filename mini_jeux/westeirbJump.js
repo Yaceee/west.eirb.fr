@@ -35,6 +35,8 @@ var son;
 var validscore;
 var boutonValid;
 var buttonavailable;
+var right = true;
+
 
   
   
@@ -60,6 +62,7 @@ function Platform(ptfPosY) {
   this.yPos = ptfPosY;
   this.width = ptfX;
   this.height = ptfY;
+  this.gap = this.xPos;
   this.nbSaut=0;
 }
 
@@ -83,7 +86,7 @@ function Icon(x,y) {
 
 function setup() {
   createCanvas(400, 600);
-  frameRate(60);
+  frameRate(63);
   started = false;
   validscore=false;
   buttonavailable=true;
@@ -104,15 +107,15 @@ function draw() {
 
 function level(){
   if(mstPossible){
-    if(score%500==0){
+    if(score%100==0){
       hardcorefour();
       mstPossible =false;
     }
-    else if(score%100==0){
+    else if(score%40==0){
       hardcorethree();
       mstPossible = false;
     }
-    else if(score%50==0){
+    else if(score%20==0){
       hardcoretwo();
       mstPossible = false;
     }
@@ -127,7 +130,7 @@ function level(){
 
 
 function hardcoreone(){
-    var mst = new Monstre(15);
+    var mst = new Monstre(-20);
     monstre="un";
     mstList.push(mst);
     mstList.forEach(function(mst) {
@@ -143,7 +146,7 @@ function hardcoreone(){
 }
 
 function hardcoretwo(){
-  var mst = new Monstre(15);
+  var mst = new Monstre(-20);
   monstre="deux";
     mstList.push(mst);
     mstList.forEach(function(mst) {
@@ -159,7 +162,7 @@ function hardcoretwo(){
 }
 
 function hardcorethree(){
-  var mst = new Monstre(15);
+  var mst = new Monstre(-20);
   monstre="trois";
     mstList.push(mst);
     mstList.forEach(function(mst) {
@@ -175,11 +178,10 @@ function hardcorethree(){
 }
 
 function hardcorefour(){
-  var mst = new Monstre(15);
+  var mst = new Monstre(-20);
   monstre="quatre";
     mstList.push(mst);
     mstList.forEach(function(mst) {
-      // move all platforms down
       mst.yPos += platYChange;
       image(monsterQuatreImg, mst.xPos, mst.yPos, mst.width, mst.height);
   
@@ -270,6 +272,7 @@ function mousePressed() {
       persoX = ptfList[ptfList.length - 1].xPos + 15;
       speed = 0.1;
       started = true;
+      mstList=[];
       /*son.play();
       son.jump(14);*/
     }
@@ -286,6 +289,7 @@ function mousePressed() {
       persoX = ptfList[ptfList.length - 1].xPos + 15;
       speed = 0.1;
       started = true;
+      mstList=[];
      /* son.play();
       son.jump(14);*/
     }
@@ -302,6 +306,7 @@ function mousePressed() {
       persoX = ptfList[ptfList.length - 1].xPos + 15;
       speed = 0.1;
       started = true;
+      mstList=[];
       /*son.play();
       son.jump(14);*/
     }
@@ -393,8 +398,23 @@ function drawPlatforms() {
       ptfList.pop();
       var newPlat = new Platform(0);
       ptfList.unshift(newPlat); // add to front
+      
     }
-    // plat.xPos++; TODO faisaible
+    console.log(ptfList);
+
+
+    if(score>20){
+      if(plat.xPos-plat.gap > 100){
+        right=false;
+      }else if (plat.xPos-plat.gap < -100){
+        right=true
+      }
+      if(right){
+        plat.xPos++; 
+      }else{
+        plat.xPos--;
+      }
+    }
   });
 }
 
@@ -434,7 +454,6 @@ function drawMonsters(monstre) {
 // ===========================
 function checkCollision() {
   ptfList.forEach(function(plat, index) {
-    var tmp= plat.yPos;
     if(
       persoX < plat.xPos + plat.width &&
       persoX + persoSize > plat.xPos &&
@@ -445,11 +464,12 @@ function checkCollision() {
       speed = -10;
       plat.nbSaut++;
     }
-    if(plat.nbSaut == 2){
+    /*if(plat.nbSaut == 2){
+      var newPlat = new Platform(-(600-plat.yPos+15));
       ptfList.splice(index, 1);
-      var newPlat = new Platform(-(600-tmp));
       ptfList.unshift(newPlat);
-    }
+      console.log(ptfList);
+    }*/
   });
 
   mstList.forEach(function(mst) {
@@ -466,12 +486,13 @@ function checkCollision() {
     }else if( 
       persoX < mst.xPos + mst.width &&
       persoX + persoSize > mst.xPos &&
-      persoY < mst.yPos + mst.height &&
+      persoY < mst.yPos + mst.height-10 &&
       persoY + persoSize > mst.yPos &&
       speed > 0){
         if(score > highScore) {
           highScore = score;
         }
+        mstList.pop();
        endGame();
     }
   });
@@ -498,7 +519,6 @@ function endGame() {
   started = false;
   validscore=true;
   ptfList = [];
-  mstList = [];
   mstPossible = true;
   iconList = [];
   buttonavailable=true;
