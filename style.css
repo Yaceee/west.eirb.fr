@@ -21,6 +21,7 @@
     --color_yellow : #E1A101;
     --color_cream : #cfa682;
     --color_dark_cream : #91643c;
+    --color_footer : #614328;
     --color_sign : #784421;
     --color_silver : #cccccc;
     margin: 0;
@@ -64,6 +65,11 @@ body
 .bg-cream
 {
     background-color: var(--color_cream);
+}
+
+.bg-footer
+{
+    background-color: var(--color_footer);
 }
 
 .nav-link
@@ -464,6 +470,15 @@ body
     width: 400px;
     border: 20px solid transparent;
     border-image: url("image/cadre.png") 84;
+    transition: transform ease-out 0.2s;
+}
+
+@media (hover : hover)
+{
+    .miniature:hover
+    {
+        transform: scale(1.03);
+    }
 }
 
 .dd-title
