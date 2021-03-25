@@ -490,3 +490,61 @@ body
     padding-bottom: 30px;
     background-size: contain;
 }
+
+.konami_page
+{
+    position: relative;
+}
+
+#warning_message
+{
+    margin: 20% 0;
+    z-index: 1;
+    transition: opacity linear 0.4s;
+}
+
+.w_button
+{
+    width: 200px;
+    height: 50px;
+    font-family: 'Alphakind', sans-serif ; 
+    border-radius: 10px;
+    outline: none !important;
+    -webkit-appearance: none;
+    transition: all ease-in-out 0.2s;
+    margin: 10px;
+}
+
+.w_button:active
+{
+    transform: scale(1.05);
+}
+
+#green_button
+{
+    background-color: #538d22;
+    border: solid #245501 3px;
+}
+
+#red_button
+{
+    background-color: #c70512;
+    border: solid #9f040e 3px;
+}
+
+#konami_video
+{
+    margin-top: 1rem;
+    transition: opacity linear 0.4s;
+    opacity: 1;
+}
+
+.hidden
+{
+    display: none;
+}
+
+.transparent
+{
+    opacity: 0 !important;
+}

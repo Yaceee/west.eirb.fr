@@ -36,16 +36,20 @@
                     </div>
                 </nav>
             </div>
-            
-            <div class="container">
-                <div class="warning_message">
-                    
-                </div>
-                <div class="video-container margin-vid">
-                    <iframe class="youtube-video" src="https://www.youtube-nocookie.com/embed/eY52Zsg-KVI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="container konami_page">
+            <div id="warning_message" class="banner d-flex flex-column text-align">
+                <h2 class="banner-title text-border">ATTENTION !</h2>
+                <p class="text-content center">Le vidéogramme que vous allez voir comporte une forte dose de malaise, et n'est donc pas adapté à la vue de tout le monde.</p>
+                <div class="center">
+                    <button id="green_button" class="w_button">Continuer</button>
+                    <button id="red_button" class="w_button">Continuer en rouge</button>
                 </div>
             </div>
-            
+            <div id="konami_video" class="video-container margin-vid hidden transparent">
+                <iframe class="youtube-video" src="https://www.youtube-nocookie.com/embed/eY52Zsg-KVI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
     </main>
 
@@ -59,5 +63,6 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+        <script src="script/kc.js"></script>
 </body>
 </html>
