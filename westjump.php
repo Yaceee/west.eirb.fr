@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 // Include eirb connect function
-include 'eirb-common/eirb.cas.php';
+include 'eirb-common/eirb-cas.php';
 // Activate the protection
 $login = eirb_cas_protect();
 ?>
