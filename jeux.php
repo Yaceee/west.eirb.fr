@@ -3,9 +3,13 @@
 <html lang="en">
 <?php
 // Include eirb connect function
-include 'eirb-common/eirb.cas.php';
+include 'eirb-common/eirb-cas.php';
+include './sql.php';
 // Activate the protection
 $login = eirb_cas_protect();
+// $bdd = new PDO('mysql:host=localhost;dbname=west;charset=utf8', 'west', 'westeirb2021');
+// $mysqli = new mysqli("localhost", "", "westeirb2010", "west");
+// var_dump(json_encode($top5[0]['username']));
 ?>
 <head>
     <meta charset="UTF-8">
@@ -46,46 +50,41 @@ $login = eirb_cas_protect();
                 </nav>
             </div>           
         </div>
-
         <div class="center miniature-container">
             <a href="westjump.php"><img src="mini_jeux/minia.png" alt="Miniature" class="miniature"></a>
         </div>
-        <script>
-            var data = <?php echo json_encode($highscoresGame1); ?>;
-            data["username"] = "test";
-            data["scoregame1"] = 5;
-            var datarray = new Array(data, data, data);
-            console.log(datarray);
-            
-            var highscores = document.getElementById('highscoresTable');
-            // highscores.style.width = '50%';
-            for (element in datarray) {
-                var row = highscores.insertRow();
-                var cellName = row.insertCell();
-                cellName.innerHTML = datarray[element].username;
-                var cellScore = row.insertCell();
-                cellScore.innerHTML = datarray[element].scoregame1;
-            };
-        </script>
-        <div id="highscores" class="">
+        
+        <div id="highscores" class="table centered">
             <table id="highscoresTable" class="">
 
             </table>
         </div>
+        <script>
+            var top5 = <?php echo(json_encode($top5)); ?>;
+            var highscores = document.getElementById('highscoresTable');
+            for(var i = 0; i < 5; i++){
+                var row = highscores.insertRow();
+                var cellName = row.insertCell();
+                cellName.innerHTML = top5[i][0];
+                var cellScore = row.insertCell();
+                cellScore.innerHTML = top5[i][1];
+                row.class = "table-row";
+            }
+            var personalScore = <?php echo $score; ?>
+            // highscores.style.width = '50%';
+        </script>
     </main>
 
     <footer class="bg-footer footer">
-        <p class="credit-name">Yaceee - Godo - Jaja</p>
-    </footer>
-    
+        <p class="credit-name">Yacee - Godo - Jaja</p>
+    </footer>        
+    <!-- <?php echo $highscoresGame1; ?> -->
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script>
-        getMax5Scores(1);
-    </script>
 </body>
-</html>
+</html>Select Top 5 RestaurantID, RestaurantName,Address,ProfileImage from Restaurant_Details order by DisplayRating Desc
