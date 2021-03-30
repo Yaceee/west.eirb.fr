@@ -1,10 +1,14 @@
 
 <?php
+// include 'eirb-common/eirb-cas.php';
+// $login = eirb_cas_protect();
 
 $bdd = new PDO('mysql:host=localhost;dbname=west;charset=utf8', 'west', 'westeirb2021');
 
 $query1 = $bdd->query("SELECT username, SCOREGAME1 FROM scores ORDER BY SCOREGAME1 DESC LIMIT 5;");
 $top5 = $query1->fetchAll();
+
+$personalScore = $bdd->query("SELECT scoregame1 FROM scores WHERE username=$login");
 
 // $highscoresGame1 = $query1->execute();
 // var_dump($highscoresGame1);

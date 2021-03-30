@@ -2,9 +2,15 @@
 <html lang="en">
 <?php
 // Include eirb connect function
+include './sql.php';
 include 'eirb-common/eirb-cas.php';
 // Activate the protection
 $login = eirb_cas_protect();
+
+// var_dump($login);
+
+// $queryScore = $bdd->query("SELECT scoregame1 FROM scores WHERE username=".$login);
+
 ?>
 <head>
     <meta charset="UTF-8">
@@ -21,7 +27,7 @@ $login = eirb_cas_protect();
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-dark justify-content-between">
                     <a href="index.html"><h1 class="navbar-brand nav-title">WEST'EIRB</h1></a>
-
+                    <div class="hidden" id="highscore"></div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -44,7 +50,7 @@ $login = eirb_cas_protect();
                     </div>
 
                 </nav>
-            </div>           
+            </div>
         </div>
 
         <div class="westjump-container">

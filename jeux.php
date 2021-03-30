@@ -70,7 +70,7 @@ $login = eirb_cas_protect();
                 cellScore.innerHTML = top5[i][1];
                 row.class = "table-row";
             }
-            
+            var personalScore = <?php echo $score; ?>
             // highscores.style.width = '50%';
         </script>
     </main>

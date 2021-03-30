@@ -523,6 +523,7 @@ function endGame() {
   iconList = [];
   buttonavailable=true;
   /*son.stop();*/
+  // document.getElementById("score");
 }
 
 
