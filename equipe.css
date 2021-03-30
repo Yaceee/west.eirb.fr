@@ -133,8 +133,8 @@
     height: 50px;
     background-image: url("image/moon.png");
     background-size: cover;
-    outline: none;
-    -webkit-appearance: none;
+    outline: none !important;
+    -webkit-appearance: none !important;
 }
 
 #night_button:checked
