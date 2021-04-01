@@ -43,6 +43,7 @@ body
 
 .footer
 {
+    position: relative;
     grid-row-start: 2;
     grid-row-end: 3;
 }
@@ -416,54 +417,6 @@ body
     }
 }
 
-.westjump-container
-{
-    display: flex;
-    justify-content: center;
-    min-height: 90vh;
-}
-
-.westjump
-{
-    position: relative;
-}
-
-@media (min-width: 500px) and (min-height: 400px)
-{
-    .westjump
-    {
-        border: 20px solid transparent;
-        border-image: url("image/cadre.png") 84;
-        width: 440px;
-        height: 640px;
-        margin-top: 50px;
-    }
-}
-
-@media (min-height: 600px)
-{
-    .westjump
-    {
-        margin-top: 30px;
-    }
-}
-
-@media (max-width: 499px)
-{
-    .westjump-container
-    {
-        width: 100%;
-        height: max-content;
-    }
-
-    .westjump
-    {
-        width: 100%;
-        max-width: 400px;
-        max-height: 600px;
-    }
-}
-
 .miniature-container
 {
     margin: 1rem 0rem;
@@ -551,4 +504,41 @@ body
 .transparent
 {
     opacity: 0 !important;
+}
+
+#highscoresTable {
+    margin: 0 !important;
+    padding: 0;
+    justify-content: center;
+    justify-items: center;
+    font-family: 'Rio_Oro_Bold';
+    color: var(--color_silver);
+}
+
+#highscores
+{
+    height: 350px;
+    width: 350px;
+    background-image: url('image/highscore.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-items: center;
+}
+
+.table td, .table th {
+    padding: .5rem 1rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 1.2rem;
+}
+
+.secret
+{
+    color: var(--color_footer);
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
 }

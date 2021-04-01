@@ -1,0 +1,80 @@
+.calendar
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80.4vh;
+    width: 100%;
+    background-image: url('image/background.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Rio_Oro_Bold';
+    text-align: center;
+    
+}
+
+.cal-container
+{
+    display: flex;
+    overflow-x: auto;
+    cursor: grab;
+    width: 90vw;
+    margin-top: 100px;
+    scroll-snap-type: x mandatory;
+}
+
+.active
+{
+    scroll-snap-type: none;
+}
+
+.day-sign
+{
+    height: 300px;
+    width: 280px;
+    background-image: url('image/panneau.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin: 0 0.5rem;
+    scroll-snap-align: center;
+}
+
+.day
+{
+    font-size: 1.4rem;
+    padding-top: 30px;
+}
+
+.event
+{
+    font-size: 2rem;
+    color: var(--color_silver);
+}
+
+.day-sign:nth-child(2n) .event
+{
+    transform: rotate(3deg);
+}
+
+.day-sign:nth-child(2n+1) .event
+{
+    transform: rotate(-2deg);
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    height: 6px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color_silver);
+    border-radius: 3px;
+}
