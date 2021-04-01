@@ -5,8 +5,8 @@ var speed;
 var speedCote = 6;
 var ptfX = 70;
 var ptfY = 15;
-var monsterX = 70;
-var monsterY = 70;
+var monsterX = 60;
+var monsterY = 60;
 var iconSize = 80;
 var maxPtf = 5;
 var ptfList = [];
@@ -47,8 +47,8 @@ function preload() {
   platformImg = loadImage("mini_jeux/image/bois.png");
   platformImgOld = loadImage("mini_jeux/image/bois2.png");
   monsterUnImg = loadImage("mini_jeux/image/monstreun.png");
-  monsterDeuxImg = loadImage("mini_jeux/image/monstredeux.png");
-  monsterTroisImg = loadImage("mini_jeux/image/monstretrois.png");
+  monsterDeuxImg = loadImage("mini_jeux/image/monstretrois.png");
+  monsterTroisImg = loadImage("mini_jeux/image/monstredeux.png");
   monsterQuatreImg = loadImage("mini_jeux/image/monstrequatre.png");
   persounImg = loadImage("mini_jeux/image/blaise.png");
   persodeuxImg = loadImage("mini_jeux/image/leonbis.png");
@@ -400,7 +400,6 @@ function drawPlatforms() {
       ptfList.unshift(newPlat); // add to front
       
     }
-    console.log(ptfList);
 
 
     if(score>20){
@@ -464,12 +463,6 @@ function checkCollision() {
       speed = -10;
       plat.nbSaut++;
     }
-    /*if(plat.nbSaut == 2){
-      var newPlat = new Platform(-(600-plat.yPos+15));
-      ptfList.splice(index, 1);
-      ptfList.unshift(newPlat);
-      console.log(ptfList);
-    }*/
   });
 
   mstList.forEach(function(mst) {
