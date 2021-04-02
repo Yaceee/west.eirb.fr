@@ -36,6 +36,9 @@ var validscore;
 var boutonValid;
 var buttonavailable;
 var right = true;
+var heigt = true;
+var step=0;
+var canup= true;
 
 
   
@@ -71,6 +74,7 @@ function Monstre(ptfPosY) {
   this.yPos = ptfPosY;
   this.width = monsterX;
   this.height = monsterY;
+  this.gap = this.yPos;
 }
 
 function Icon(x,y) {
@@ -401,19 +405,25 @@ function drawPlatforms() {
       
     }
 
-
-    if(score>20){
-      if(plat.xPos-plat.gap > 100){
+      
+    if(score%35 == 0 && canup){
+      step=step+0.3;
+      canup = false;
+    }else if(score%35 != 0 && !canup){
+      canup =true;
+    }
+      
+      if(plat.xPos-plat.gap > 120){
         right=false;
-      }else if (plat.xPos-plat.gap < -100){
+      }else if (plat.xPos-plat.gap < -120){
         right=true
       }
       if(right){
-        plat.xPos++; 
+        plat.xPos=plat.xPos+step; 
       }else{
-        plat.xPos--;
+        plat.xPos=plat.xPos-step;
       }
-    }
+
   });
 }
 
@@ -441,6 +451,20 @@ function drawMonsters(monstre) {
       mstList.pop();
       mstPossible = true;
     }
+/*
+    if(mst.yPos+platYChange-mst.gap > 30){
+      heigt=false;
+    }else if (mst.yPos-(2*platYChange)-mst.gap < -30){
+      heigt=true
+    }
+    if(heigt){
+      mst.yPos=mst.yPos+1; 
+    }else{
+      mst.yPos=mst.yPos-1;
+    }*/
+
+
+    
   });
 }
 
@@ -515,6 +539,7 @@ function endGame() {
   mstPossible = true;
   iconList = [];
   buttonavailable=true;
+  step=0;
   /*son.stop();*/
   // document.getElementById("score");
 }
