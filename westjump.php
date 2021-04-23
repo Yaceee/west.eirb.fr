@@ -62,9 +62,14 @@ if(isset($_POST['highScore'])){
                 </nav>
             </div>
         </div>
+<<<<<<< HEAD
         
         <div class="westjump-container">
             <div id="personalBest"> <p class="text-content"> Personal best : <?php echo $personalScore; ?></p></div>
+=======
+        <div id="personalBest" class="text-box container"> <p class="text-content"> Personal best : <?php echo $personalScore; ?></p></div>
+        <div class="westjump-container">
+>>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
             <iframe class="westjump" src="test_janis.php" frameborder="0"></iframe>
         </div>
     </main>

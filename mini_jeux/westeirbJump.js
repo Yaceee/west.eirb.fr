@@ -36,6 +36,12 @@ var validscore;
 var boutonValid;
 var buttonavailable;
 var right = true;
+<<<<<<< HEAD
+=======
+var heigt = true;
+var step=0;
+var canup= true;
+>>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
 
 
   
@@ -71,6 +77,7 @@ function Monstre(ptfPosY) {
   this.yPos = ptfPosY;
   this.width = monsterX;
   this.height = monsterY;
+  this.gap = this.yPos;
 }
 
 function Icon(x,y) {
@@ -209,7 +216,11 @@ function validScore(){
   fill(0);
   
   textSize(20);
+<<<<<<< HEAD
   text("Valider le score  : " + score, 130, 250);
+=======
+  text("Valdider le score  : " + score, 130, 250);
+>>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
 
   if(buttonavailable){
     boutonValid = createButton("VALIDER");
@@ -223,6 +234,7 @@ function validScore(){
 }
 
 function validate(){
+<<<<<<< HEAD
   const form = document.createElement('form')
   form.action = 'test_janis.php'
   form.method = 'post'
@@ -236,6 +248,8 @@ function validate(){
   document.body.appendChild(form)
   form.submit();
   // parent.location.reload();
+=======
+>>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
   validscore=false;
   boutonValid.remove();
 }
@@ -412,6 +426,7 @@ function drawPlatforms() {
       var newPlat = new Platform(0);
       ptfList.unshift(newPlat); // add to front
       
+<<<<<<< HEAD
     }
 
 
@@ -427,6 +442,29 @@ function drawPlatforms() {
         plat.xPos--;
       }
     }
+=======
+    }
+
+      
+    if(score%35 == 0 && canup){
+      step=step+0.3;
+      canup = false;
+    }else if(score%35 != 0 && !canup){
+      canup =true;
+    }
+      
+      if(plat.xPos-plat.gap > 120){
+        right=false;
+      }else if (plat.xPos-plat.gap < -120){
+        right=true
+      }
+      if(right){
+        plat.xPos=plat.xPos+step; 
+      }else{
+        plat.xPos=plat.xPos-step;
+      }
+
+>>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
   });
 }
 
@@ -454,6 +492,20 @@ function drawMonsters(monstre) {
       mstList.pop();
       mstPossible = true;
     }
+/*
+    if(mst.yPos+platYChange-mst.gap > 30){
+      heigt=false;
+    }else if (mst.yPos-(2*platYChange)-mst.gap < -30){
+      heigt=true
+    }
+    if(heigt){
+      mst.yPos=mst.yPos+1; 
+    }else{
+      mst.yPos=mst.yPos-1;
+    }*/
+
+
+    
   });
 }
 
@@ -528,6 +580,10 @@ function endGame() {
   mstPossible = true;
   iconList = [];
   buttonavailable=true;
+<<<<<<< HEAD
+=======
+  step=0;
+>>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
   /*son.stop();*/
   // document.getElementById("score");
 }

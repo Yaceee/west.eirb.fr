@@ -557,6 +557,7 @@ body
     bottom: -10%;
     left: 50%;
     transform: translateX(-50%);
+<<<<<<< HEAD
 }
 
 #charlie
@@ -565,3 +566,6 @@ body
     height: 50px;
     z-index: 1;
 }
+=======
+}
+>>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef

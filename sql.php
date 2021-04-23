@@ -8,9 +8,13 @@ $bdd = new PDO('mysql:host=localhost;dbname=west;charset=utf8', 'west', 'westeir
 $query1 = $bdd->query("SELECT username, SCOREGAME1 FROM scores ORDER BY SCOREGAME1 DESC LIMIT 5;");
 $top5 = $query1->fetchAll();
 
+<<<<<<< HEAD
 $queryScore = $bdd->query("SELECT scoregame1 FROM scores WHERE username='".$login."';");
 $personalScore = $queryScore->fetch()[0];
 // var_dump($personalScore);
+=======
+$personalScore = $bdd->query("SELECT scoregame1 FROM scores WHERE username=$login");
+>>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
 
 // $highscoresGame1 = $query1->execute();
 // var_dump($highscoresGame1);

@@ -54,7 +54,10 @@ $login = eirb_cas_protect();
                 </nav>
             </div>           
         </div>
+<<<<<<< HEAD
         <a href="charlie.html" style="position: absolute; bottom: 0; right: 0; z-index: 1;"><img src="image/charlie.png" alt="charlie" id="charlie"></a>
+=======
+>>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
         <div class="center miniature-container">
             <a href="westjump.php"><img src="mini_jeux/minia.jpg" alt="Miniature" class="miniature"></a>
         </div>
@@ -84,7 +87,10 @@ $login = eirb_cas_protect();
 
     <footer class="bg-footer footer">
         <p class="credit-name">Yacee - Godo - Jaja</p>
+<<<<<<< HEAD
         <p class="secret">Prezizident &lt;3 </p>
+=======
+>>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
