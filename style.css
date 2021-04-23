@@ -21,10 +21,27 @@
     --color_yellow : #E1A101;
     --color_cream : #cfa682;
     --color_dark_cream : #91643c;
+    --color_footer : #614328;
     --color_sign : #784421;
     --color_silver : #cccccc;
     margin: 0;
     padding: 0;
+}
+
+p.event a
+{
+    color: inherit;
+}
+
+p.event a:visited
+{
+    color: inherit;
+}
+
+p.event a:hover
+{
+    font-style: none;
+    text-decoration: none;
 }
 
 html
@@ -42,6 +59,7 @@ body
 
 .footer
 {
+    position: relative;
     grid-row-start: 2;
     grid-row-end: 3;
 }
@@ -64,6 +82,11 @@ body
 .bg-cream
 {
     background-color: var(--color_cream);
+}
+
+.bg-footer
+{
+    background-color: var(--color_footer);
 }
 
 .nav-link
@@ -126,6 +149,7 @@ body
     transform: rotate(-360deg);
     transition: linear 0.13s;
     transition-property: all;
+    
 }
 
 .rev-r-img
@@ -134,6 +158,7 @@ body
     transform: rotate(-360deg);
     transition: ease-out 0.13s;
     transition-property: all;
+    
 }
 
 @media (hover: hover)
@@ -143,6 +168,7 @@ body
         height: 2rem;
         transform: rotate(0deg);
         display: initial;
+        margin: 0 0.2rem;
     }
     
     .nav-item:hover .rev-r-img
@@ -150,6 +176,7 @@ body
         height: 2rem;
         transform: rotate(0deg);
         display: initial;
+        margin: 0 0.2rem;
     }
 }
 
@@ -216,7 +243,7 @@ body
 .bg-fond
 {
     background-image: url("image/fond.png");
-    background-repeat: repeat-y;
+    background-repeat: repeat;
     background-position-x: center;
     transition: background-image ease-in-out 0.5s;
 }
@@ -406,54 +433,6 @@ body
     }
 }
 
-.westjump-container
-{
-    display: flex;
-    justify-content: center;
-    min-height: 90vh;
-}
-
-.westjump
-{
-    position: relative;
-}
-
-@media (min-width: 500px) and (min-height: 400px)
-{
-    .westjump
-    {
-        border: 20px solid transparent;
-        border-image: url("image/cadre.png") 84;
-        width: 440px;
-        height: 640px;
-        margin-top: 50px;
-    }
-}
-
-@media (min-height: 600px)
-{
-    .westjump
-    {
-        margin-top: 30px;
-    }
-}
-
-@media (max-width: 499px)
-{
-    .westjump-container
-    {
-        width: 100%;
-        height: max-content;
-    }
-
-    .westjump
-    {
-        width: 100%;
-        max-width: 400px;
-        max-height: 600px;
-    }
-}
-
 .miniature-container
 {
     margin: 1rem 0rem;
@@ -464,6 +443,15 @@ body
     width: 400px;
     border: 20px solid transparent;
     border-image: url("image/cadre.png") 84;
+    transition: transform ease-out 0.2s;
+}
+
+@media (hover : hover)
+{
+    .miniature:hover
+    {
+        transform: scale(1.03);
+    }
 }
 
 .dd-title
@@ -474,4 +462,106 @@ body
     padding-top: 70px;
     padding-bottom: 30px;
     background-size: contain;
+}
+
+.konami_page
+{
+    position: relative;
+}
+
+#warning_message
+{
+    margin: 20% 0;
+    z-index: 1;
+    transition: opacity linear 0.4s;
+}
+
+.w_button
+{
+    width: 200px;
+    height: 50px;
+    font-family: 'Alphakind', sans-serif ; 
+    border-radius: 10px;
+    outline: none !important;
+    -webkit-appearance: none;
+    transition: all ease-in-out 0.2s;
+    margin: 10px;
+}
+
+.w_button:active
+{
+    transform: scale(1.05);
+}
+
+#green_button
+{
+    background-color: #538d22;
+    border: solid #245501 3px;
+}
+
+#red_button
+{
+    background-color: #c70512;
+    border: solid #9f040e 3px;
+}
+
+#konami_video
+{
+    margin-top: 1rem;
+    transition: opacity linear 0.4s;
+    opacity: 1;
+}
+
+.hidden
+{
+    display: none;
+}
+
+.transparent
+{
+    opacity: 0 !important;
+}
+
+#highscoresTable {
+    margin: 0 !important;
+    padding: 0;
+    justify-content: center;
+    justify-items: center;
+    font-family: 'Rio_Oro_Bold';
+    color: var(--color_silver);
+}
+
+#highscores
+{
+    height: 350px;
+    width: 350px;
+    background-image: url('image/highscore.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-items: center;
+}
+
+.table td, .table th {
+    padding: .5rem 1rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 1.2rem;
+}
+
+.secret
+{
+    color: var(--color_footer);
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#charlie
+{
+    width: 50px;
+    height: 50px;
+    z-index: 1;
 }

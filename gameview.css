@@ -20,3 +20,87 @@ body
     background-color: var(--color_cream);
 }
 
+#personalBest
+{
+    position: absolute;
+    z-index: 1;
+}
+
+.westjump-container
+{
+    display: flex;
+    justify-content: center;
+    min-height: 90vh;
+    position: relative;
+}
+
+.westjump
+{
+    position: relative;
+}
+
+@media (min-width: 500px) and (min-height: 700px)
+{
+    .westjump
+    {
+        border: 20px solid transparent;
+        border-image: url("image/cadre.png") 84;
+        width: 440px;
+        height: 640px;
+        margin-top: 50px;
+    }
+
+    #personalBest
+    {
+        top: 5px;
+    }
+}
+
+@media (min-height: 700px)
+{
+    .westjump
+    {
+        margin-top: 30px;
+    }
+
+    #personalBest
+    {
+        top: 5px;
+    }
+}
+
+@media (min-width: 500px) and (max-height: 699px)
+{
+    .westjump
+    {
+        width: 100%;
+        max-width: 400px;
+        max-height: 600px;
+    }
+
+    #personalBest
+    {
+        bottom: 5px;
+    }
+}
+
+@media (max-width: 499px)
+{
+    .westjump-container
+    {
+        width: 100%;
+        height: max-content;
+    }
+
+    .westjump
+    {
+        width: 100%;
+        max-width: 400px;
+        max-height: 600px;
+    }
+
+    #personalBest
+    {
+        bottom: 5px;
+    }
+}

@@ -5,8 +5,8 @@ var speed;
 var speedCote = 6;
 var ptfX = 70;
 var ptfY = 15;
-var monsterX = 80;
-var monsterY = 35;
+var monsterX = 60;
+var monsterY = 60;
 var iconSize = 80;
 var maxPtf = 5;
 var ptfList = [];
@@ -16,7 +16,6 @@ var platYChange = 0;
 var started;
 var score = 0;
 var highScore = 0;
-var persoImg;
 var platformImg;
 var platformImgOld
 var monsterDeuxImg;
@@ -33,16 +32,23 @@ var typePerso="";
 var monstre="";
 var platacreerList = [];
 var son;
+var validscore;
+var boutonValid;
+var buttonavailable;
+var right = true;
+
+
+  
+  
 
 
 function preload() {
   backgroundImg = loadImage("mini_jeux/image/background.jpg");
-  persoImg = loadImage("mini_jeux/image/texasWalker.png");
   platformImg = loadImage("mini_jeux/image/bois.png");
   platformImgOld = loadImage("mini_jeux/image/bois2.png");
   monsterUnImg = loadImage("mini_jeux/image/monstreun.png");
-  monsterDeuxImg = loadImage("mini_jeux/image/monstredeux.png");
-  monsterTroisImg = loadImage("mini_jeux/image/monstretrois.png");
+  monsterDeuxImg = loadImage("mini_jeux/image/monstretrois.png");
+  monsterTroisImg = loadImage("mini_jeux/image/monstredeux.png");
   monsterQuatreImg = loadImage("mini_jeux/image/monstrequatre.png");
   persounImg = loadImage("mini_jeux/image/blaise.png");
   persodeuxImg = loadImage("mini_jeux/image/leonbis.png");
@@ -56,6 +62,7 @@ function Platform(ptfPosY) {
   this.yPos = ptfPosY;
   this.width = ptfX;
   this.height = ptfY;
+  this.gap = this.xPos;
   this.nbSaut=0;
 }
 
@@ -79,15 +86,20 @@ function Icon(x,y) {
 
 function setup() {
   createCanvas(400, 600);
-  frameRate(60);
+  frameRate(63);
   started = false;
+  validscore=false;
+  buttonavailable=true;
 }
 
 function draw() {
   image(backgroundImg, 0, 0, 400, 600);
   if(started) {
     jeu();
-  } else {
+  } else if (validscore) {
+    validScore();
+  }
+  else{
     menu();
   }
 }
@@ -95,15 +107,15 @@ function draw() {
 
 function level(){
   if(mstPossible){
-    if(score%500==0){
+    if(score%100==0){
       hardcorefour();
       mstPossible =false;
     }
-    else if(score%100==0){
+    else if(score%40==0){
       hardcorethree();
       mstPossible = false;
     }
-    else if(score%50==0){
+    else if(score%20==0){
       hardcoretwo();
       mstPossible = false;
     }
@@ -118,7 +130,7 @@ function level(){
 
 
 function hardcoreone(){
-    var mst = new Monstre(15);
+    var mst = new Monstre(-20);
     monstre="un";
     mstList.push(mst);
     mstList.forEach(function(mst) {
@@ -134,7 +146,7 @@ function hardcoreone(){
 }
 
 function hardcoretwo(){
-  var mst = new Monstre(15);
+  var mst = new Monstre(-20);
   monstre="deux";
     mstList.push(mst);
     mstList.forEach(function(mst) {
@@ -150,7 +162,7 @@ function hardcoretwo(){
 }
 
 function hardcorethree(){
-  var mst = new Monstre(15);
+  var mst = new Monstre(-20);
   monstre="trois";
     mstList.push(mst);
     mstList.forEach(function(mst) {
@@ -166,11 +178,10 @@ function hardcorethree(){
 }
 
 function hardcorefour(){
-  var mst = new Monstre(15);
+  var mst = new Monstre(-20);
   monstre="quatre";
     mstList.push(mst);
     mstList.forEach(function(mst) {
-      // move all platforms down
       mst.yPos += platYChange;
       image(monsterQuatreImg, mst.xPos, mst.yPos, mst.width, mst.height);
   
@@ -191,6 +202,42 @@ function jeu(){
   moveScreen();
   updateScore();
   level();
+}
+
+
+function validScore(){
+  fill(0);
+  
+  textSize(20);
+  text("Valider le score  : " + score, 130, 250);
+
+  if(buttonavailable){
+    boutonValid = createButton("VALIDER");
+    boutonValid.mousePressed(validate);
+    boutonValid.position(150,170);
+    buttonavailable=false;
+  }
+  
+  
+
+}
+
+function validate(){
+  const form = document.createElement('form')
+  form.action = 'test_janis.php'
+  form.method = 'post'
+
+  const highScoreInput = document.createElement('input')
+  highScoreInput.type = 'hidden'
+  highScoreInput.name = 'highScore'
+  highScoreInput.value = highScore
+  form.appendChild(highScoreInput)
+  // repeat for guest
+  document.body.appendChild(form)
+  form.submit();
+  // parent.location.reload();
+  validscore=false;
+  boutonValid.remove();
 }
 
 
@@ -224,7 +271,7 @@ function touchMoved() {   // Move gray circle
 
 // Start Game
 function mousePressed() {
-  if(!started){
+  if(!started && !validscore){
     if (
       mouseX > 90  &&
       mouseX < 90 +80 &&
@@ -238,6 +285,7 @@ function mousePressed() {
       persoX = ptfList[ptfList.length - 1].xPos + 15;
       speed = 0.1;
       started = true;
+      mstList=[];
       /*son.play();
       son.jump(14);*/
     }
@@ -254,6 +302,7 @@ function mousePressed() {
       persoX = ptfList[ptfList.length - 1].xPos + 15;
       speed = 0.1;
       started = true;
+      mstList=[];
      /* son.play();
       son.jump(14);*/
     }
@@ -270,6 +319,7 @@ function mousePressed() {
       persoX = ptfList[ptfList.length - 1].xPos + 15;
       speed = 0.1;
       started = true;
+      mstList=[];
       /*son.play();
       son.jump(14);*/
     }
@@ -313,7 +363,7 @@ function drawDoodler(perso) {
       image(persotroisImg, persoX, persoY, persoSize, persoSize);
       break;
     default :
-      image(persoImg, persoX, persoY, persoSize, persoSize);
+      image(persounImg, persoX, persoY, persoSize, persoSize);
       break;
   }
   
@@ -361,8 +411,22 @@ function drawPlatforms() {
       ptfList.pop();
       var newPlat = new Platform(0);
       ptfList.unshift(newPlat); // add to front
+      
     }
-    // plat.xPos++; TODO faisaible
+
+
+    if(score>20){
+      if(plat.xPos-plat.gap > 100){
+        right=false;
+      }else if (plat.xPos-plat.gap < -100){
+        right=true
+      }
+      if(right){
+        plat.xPos++; 
+      }else{
+        plat.xPos--;
+      }
+    }
   });
 }
 
@@ -402,7 +466,6 @@ function drawMonsters(monstre) {
 // ===========================
 function checkCollision() {
   ptfList.forEach(function(plat, index) {
-    var tmp= plat.yPos;
     if(
       persoX < plat.xPos + plat.width &&
       persoX + persoSize > plat.xPos &&
@@ -413,18 +476,13 @@ function checkCollision() {
       speed = -10;
       plat.nbSaut++;
     }
-    if(plat.nbSaut == 2){
-      ptfList.splice(index, 1);
-      var newPlat = new Platform(-(600-tmp));
-      ptfList.unshift(newPlat);
-    }
   });
 
   mstList.forEach(function(mst) {
     if(
       persoX < mst.xPos + mst.width &&
       persoX + persoSize > mst.xPos &&
-      persoY + persoSize < mst.yPos + mst.height &&
+      persoY + persoSize < mst.yPos + 20 &&
       persoY + persoSize > mst.yPos &&
       speed > 0
     ) {
@@ -434,12 +492,13 @@ function checkCollision() {
     }else if( 
       persoX < mst.xPos + mst.width &&
       persoX + persoSize > mst.xPos &&
-      persoY < mst.yPos + mst.height &&
+      persoY < mst.yPos + mst.height-10 &&
       persoY + persoSize > mst.yPos &&
       speed > 0){
         if(score > highScore) {
           highScore = score;
         }
+        mstList.pop();
        endGame();
     }
   });
@@ -464,12 +523,13 @@ function checkCollision() {
 
 function endGame() {
   started = false;
+  validscore=true;
   ptfList = [];
-  mstList = [];
   mstPossible = true;
   iconList = [];
+  buttonavailable=true;
   /*son.stop();*/
-
+  // document.getElementById("score");
 }
 
 

@@ -133,8 +133,8 @@
     height: 50px;
     background-image: url("image/moon.png");
     background-size: cover;
-    outline: none;
-    -webkit-appearance: none;
+    outline: none !important;
+    -webkit-appearance: none !important;
 }
 
 #night_button:checked
@@ -145,6 +145,23 @@
 .night_button_cont
 {
     margin-bottom: 20px;
+}
+
+#djaba_dromadaire
+{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 8000px;
+    left: -50px;
+    transform: rotate(15deg);
+    transition: all linear 0.2s;
+}
+
+#djaba_dromadaire:hover
+{
+    transform: scale(2) rotate(0);
+    left: 20px;
 }
 
 @media (max-width : 767px){
