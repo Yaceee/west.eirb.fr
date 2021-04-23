@@ -23,10 +23,6 @@ body
 #personalBest
 {
     position: absolute;
-<<<<<<< HEAD
-=======
-    top: 100px;
->>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
     z-index: 1;
 }
 
@@ -53,14 +49,11 @@ body
         height: 640px;
         margin-top: 50px;
     }
-<<<<<<< HEAD
 
     #personalBest
     {
         top: 5px;
     }
-=======
->>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
 }
 
 @media (min-height: 700px)
@@ -69,14 +62,11 @@ body
     {
         margin-top: 30px;
     }
-<<<<<<< HEAD
 
     #personalBest
     {
         top: 5px;
     }
-=======
->>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
 }
 
 @media (min-width: 500px) and (max-height: 699px)
@@ -87,14 +77,11 @@ body
         max-width: 400px;
         max-height: 600px;
     }
-<<<<<<< HEAD
 
     #personalBest
     {
         bottom: 5px;
     }
-=======
->>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
 }
 
 @media (max-width: 499px)
@@ -111,12 +98,9 @@ body
         max-width: 400px;
         max-height: 600px;
     }
-<<<<<<< HEAD
 
     #personalBest
     {
         bottom: 5px;
     }
-=======
->>>>>>> 1cd6c67b93bf1296fc1e8d5989e07b3563285bef
 }
